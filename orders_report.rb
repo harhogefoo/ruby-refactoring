@@ -9,17 +9,17 @@ class OrdersReport
   def total_sales_within_date_range
     total_sales(orders_within_range)
   end
-end
 
-private
+  private
 
-def total_sales(orders)
-  orders.map(&:amount).inject(0, :+)
-end
+  def total_sales(orders)
+    orders.map(&:amount).inject(0, :+)
+  end
 
-def orders_within_range
-  @orders.select do |order|
-    order.placed_between?(@date_range)
+  def orders_within_range
+    @orders.select do |order|
+      order.placed_between?(@date_range)
+    end
   end
 end
 
