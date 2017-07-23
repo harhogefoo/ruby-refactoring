@@ -10,10 +10,9 @@ describe OrdersReport do
 
       orders = [order_within_range1, order_within_range2, order_out_of_range]
 
-      start_date = Date.new(2016, 10, 1)
-      end_date = Date.new(2016, 10, 31)
+      date_range = DateRange.new(Date.new(2016, 10, 1), Date.new(2016, 10, 31))
 
-      expect(OrdersReport.new(orders, start_date, end_date).total_sales_within_date_range).to eq(15)
+      expect(OrdersReport.new(orders, date_range).total_sales_within_date_range).to eq(15)
     end
   end
 end
